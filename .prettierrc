@@ -1,1 +1,6 @@
-{}
+{ "terminal.background" : "#2c26260e",
+    "editor.background": "#050505",
+    "tab.activeBorder": "#0000",
+    "tab.activeBorderTop": "#ff000",
+    "sideBar.border": "#FFFFFF59",
+    "sideBar.background":" #070606"}
