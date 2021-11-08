@@ -10,6 +10,7 @@ public class InverseOfAnArray {
         }
             int[] inv=inverse(a);
             display(inv);
+            scn.close();
     }
 
     private static void display(int[] inv) {

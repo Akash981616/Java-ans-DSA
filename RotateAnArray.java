@@ -3,6 +3,7 @@ public class RotateAnArray
 {public static void reverse(int[] a, int li, int ri) {
     System.out.println(a[li]);
     System.out.println(a[ri]);
+
     while (li < ri) {
       int temp = a[li];
       a[li] = a[ri];
@@ -37,7 +38,7 @@ public static void rotate(int[] a, int k) {
         for (int i = 0; i < a.length; i++) {
             a[i]=scn.nextInt();
             
-        }
+        }scn.close();
         int k=scn.nextInt();
         rotate(a,k);
         dispaly(a);

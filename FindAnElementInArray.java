@@ -11,6 +11,7 @@ public class FindAnElementInArray {
         }
         int idx=-1;
         int d=scn.nextInt();
+        scn.close();
         for(int i=0;i<arr.length;i++){
             
             if(arr[i]==d){

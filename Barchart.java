@@ -29,6 +29,6 @@ public class Barchart {
             }
             System.out.println();
         }
-       
+        scn.close();
     }
 }

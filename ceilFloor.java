@@ -6,6 +6,7 @@ public class ceilFloor {
         int []array = new int[n];
         for (int i = 0; i < array.length; i++) {
           array[i] = scn.nextInt();
+          scn.close();
     
         }
     

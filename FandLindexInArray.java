@@ -12,18 +12,38 @@ public class FandLindexInArray {
         int data=scn.nextInt();
         int l = 0;
         int h = arr.length - 1;
-    
-        while (l <= h) {
+       int  fi=-1;
+       scn.close();
+    //FOR FIRST INDEX
+            while (l <= h) {
           int m = (l + h) / 2;
           if (data > arr[m]) {
             l = m + 1;
           } else if (data < arr[m]) {
             h = m - 1;
           } else {
-            System.out.println(m);
-            return;
+              fi=m;
+              h=m+1;
+        
           }
         }
-        System.out.println(-1);
+        
+                //FOR LAST INDEX
+                int li=-1;
+                        while (l <= h) {
+                    int m = (l + h) / 2;
+                    if (data > arr[m]) {
+                        l = m + 1;
+                    } else if (data < arr[m]) {
+                        h = m - 1;
+                    } else {
+                        li=m;
+                        l=m+1;
+
+                    }
+                    }
+                    
+        System.out.println(fi);
+        System.out.println(li);
       }
 }

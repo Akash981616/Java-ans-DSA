@@ -8,6 +8,7 @@ import java.util.Scanner;
       int b = scn.nextInt();
       int d = getValueIndecimal(n, b);
       System.out.println(d);
+      scn.close();
    }
   
    public static int getValueIndecimal(int n, int b){

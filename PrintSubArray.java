@@ -8,6 +8,7 @@ public class PrintSubArray {
             a[i]=scn.nextInt();
         }
         subarray(a);
+        scn.close();
     }
     public static  void subarray(int a[]) {
         for (int i = 0; i < a.length; i++) {

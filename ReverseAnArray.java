@@ -10,6 +10,7 @@ while(i<j){
     a[j]=temp;
     i++;
     j--;
+
 }
  }
  public static void display(int []a){
@@ -26,7 +27,7 @@ while(i<j){
         int a[]=new int[n];
         for (int i = 0; i < a.length; i++) {
             a[i]=scn.nextInt();
-        }
+        }scn.close();
         reverse(a);
         display(a);
      }  

@@ -5,6 +5,7 @@ public class SubstracitonOfArray {
         Scanner scn = new Scanner(System.in);
         int n1 = scn.nextInt();
         int a1[] = new int[n1];
+        scn.close();
     
         for (int i = 0; i < a1.length; i++) {
           a1[i] = scn.nextInt();

@@ -11,6 +11,7 @@ public static void main(String[] args) {
 
     int d = getValue(n, b1, b2);
     System.out.println(d);
+    scn.close();
  }
 
  public static int getValue(int n, int b1, int b2){

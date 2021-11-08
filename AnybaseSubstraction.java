@@ -6,6 +6,7 @@ public class AnybaseSubstraction {
         int n1=scn.nextInt();
         int n2=scn.nextInt();
         int  result= Sum(b, n1, n2);
+        scn.close();
       System.out.println(result);
      }
        public static int Sum(int b, int n1, int n2){
