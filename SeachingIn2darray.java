@@ -10,6 +10,7 @@ public class SeachingIn2darray {
 
           }
       }
+      scn.close();
       int data =scn.nextInt();
     int row = 0;
     int col = n - 1;
