@@ -12,6 +12,7 @@ public class RemoveallPrimes {
         }
         solution(list);
         System.out.print(list);
+        scn.close();
     }
     
     private static void solution(ArrayList<Integer> list) {
