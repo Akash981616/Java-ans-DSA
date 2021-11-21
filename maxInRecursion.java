@@ -24,9 +24,6 @@ public class maxInRecursion {
       else{
          return arr[idx];
 
-      }
-      
-      
+      }     
 }
-
 }
