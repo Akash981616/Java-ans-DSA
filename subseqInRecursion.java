@@ -23,7 +23,8 @@ public class subseqInRecursion {
         char ch = str.charAt(0);                                      //2
         String ros = str.substring(1);                                //3
     
-        ArrayList< String> rres = gss(ros);                            //4
+        ArrayList< String> rres = gss(ros);   
+        System.out.print(rres);                         //4
         ArrayList< String> mres = new ArrayList< >();                   //5
         for (String val : rres) {
           mres.add("" + val);                                       //6

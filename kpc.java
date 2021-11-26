@@ -5,7 +5,6 @@ import java.util.Scanner;
  */
 public class kpc {
   
-        
         public static void main(String[] args) throws Exception {
             Scanner scn = new Scanner(System.in);
             String str = scn.next();
@@ -26,7 +25,10 @@ public class kpc {
               return bres;
             }
             char ch = str.charAt(0);                                      //2
-            String ros = str.substring(1);                                //3
+            String ros = str.substring(1);  
+           System.out.print(ros);
+    
+            //3
         
             ArrayList< String> rres = gss(ros);                            //4
             ArrayList< String> mres = new ArrayList< >(); 
