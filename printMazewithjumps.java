@@ -5,6 +5,7 @@ public class printMazewithjumps {
         int n=scn.nextInt();
         int m=scn.nextInt();
         printMazewithjump(0,0,m,n,"");
+        scn.close();
     }
 
     private static void printMazewithjump(int sr, int sc, int dr, int dc,String ans) {
