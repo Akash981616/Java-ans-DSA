@@ -13,7 +13,7 @@ public class printPermutations {
             System.out.println(ans);
             return;
         }
-            
+        
         
         for (int i = 0; i < sb.length(); i++) {
             char ch=sb.charAt(i);
