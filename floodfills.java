@@ -14,6 +14,7 @@ public class floodfills {  public static void main(String[] args) throws Excepti
     }
     boolean[][] visited = new boolean[n][m];
     floodfill(arr, 0, 0, "", visited);
+    scn.close();
   }
 
   public static void floodfill(int[][] maze, int sr, int sc, String asf, boolean[][] visited) {
