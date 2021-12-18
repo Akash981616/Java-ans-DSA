@@ -5,6 +5,7 @@ public class climstairstable {
         int n =scn.nextInt();
        int ans= climbStairsTabulation(n);
        System.out.println(ans);
+       scn.close();
         }
 
     private static int climbStairsTabulation(int n) {

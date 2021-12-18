@@ -6,6 +6,7 @@ public class climStair {
         int qb[]=new int[n+1];
         int ans=climStairs(n,qb);
         System.out.println(ans);
+        scn.close();
     }
 
     private static int climStairs(int n, int[] qb) {
