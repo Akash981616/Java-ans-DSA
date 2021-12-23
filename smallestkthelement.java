@@ -9,6 +9,7 @@ public class smallestkthelement {
     }
     int k = scn.nextInt();     
       System.out.println(quickSelect(arr, 0, arr.length - 1, k - 1));
+      scn.close();
     }
 
     private static int quickSelect(int[] arr, int low, int high, int k) {
@@ -51,5 +52,6 @@ public class smallestkthelement {
         arr[i] = arr[j];
         arr[j] = temp;
       }
+      
     
 }

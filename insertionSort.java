@@ -12,6 +12,7 @@ public class insertionSort {
     }
     insertionSorting(arr);
     print(arr);
+    scn.close();
   }
 
   public static void insertionSorting(int[] arr) {

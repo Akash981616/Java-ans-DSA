@@ -13,6 +13,7 @@ public class partisionSort {
         int pivot=scn.nextInt();
     
         partisionSorts(arr,pivot);
+        scn.close();
 
     }
 
@@ -47,4 +48,5 @@ public class partisionSort {
         arr[j]=temp;
     }
     
+
 }

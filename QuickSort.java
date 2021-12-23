@@ -11,6 +11,7 @@ public class QuickSort {
         }
      
         QuickSorts(arr,0,arr.length-1);
+        scn.close();
      
     }
     private static void QuickSorts(int[] arr, int low, int hi) {
@@ -23,6 +24,7 @@ public class QuickSort {
         QuickSorts(arr,  pi+1,hi);
     
     }
+
     public static int partisionSort(int arr[],int low,int hi, int pivot){  
          System.out.println("pivot -> " + pivot);
         int i=low;
@@ -54,4 +56,5 @@ public class QuickSort {
         System.out.println(x);
     }
     }
+    
 }
