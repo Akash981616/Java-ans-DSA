@@ -28,20 +28,45 @@ public class Primenumber {
     //  }
 
     
-    public static void main(String[] args) throws Exception {
-        Scanner scn=new Scanner(System.in);
-        int n=scn.nextInt();
-        printIncreasing(n);
-        scn.close();
+    // public static void main(String[] args) throws Exception {
+    //     Scanner scn=new Scanner(System.in);
+    //     int n=scn.nextInt();
+    //     printIncreasing(n);
+    //     scn.close();
         
         
-    }
+    // }
 
-    public static void printIncreasing(int n){
-        if(n==0){
-            return;
+    // public static void printIncreasing(int n){
+    //     if(n==0){
+    //         return;
+    //     }
+    //     printIncreasing(n-1);
+    //     System.out.println(n);
+    // }
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int t = scn.nextInt();
+        
+        for (int j = 0; j < t; j++) {
+          int n = scn.nextInt();
+    
+    
+          int count = 0;
+          for (int div = 2; div * div <= n; div++) {
+            System.out.println(div*div);
+            if (n%div == 0) {
+              count++;
+              break;
+            }
+          }
+        
+        if (count == 0) {
+          System.out.println("prime");
         }
-        printIncreasing(n-1);
-        System.out.println(n);
+        else {
+          System.out.println("not prime");
+        }
+      }
     }
 }
