@@ -18,5 +18,6 @@ public class primenumbertilln {
             System.out.println(i);
         }
     }
+    scn.close();
     }
 }
