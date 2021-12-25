@@ -68,5 +68,6 @@ public class Primenumber {
           System.out.println("not prime");
         }
       }
+      scn.close();
     }
 }
