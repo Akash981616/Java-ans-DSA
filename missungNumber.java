@@ -3,14 +3,13 @@ import java.util.*;
 public class missungNumber {
 public static void main(String[] args) {
         Scanner scn=new Scanner(System.in);
-        int n=scn.nextInt();
-        // int arr[]={5,4,3,2,1};
-        int arr[]=new int[n];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i]=scn.nextInt();
-        }
+     
+         int arr[]={5,4,3,2,1};
+        
+       
         CylicSort(arr);
         display(arr);
+        scn.close();
     }
 
     private static void display(int[] arr) {

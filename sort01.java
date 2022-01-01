@@ -9,6 +9,7 @@ public class sort01 {
     }
     sort01s(arr);
     print(arr);
+    scn.close();
   }
 
 

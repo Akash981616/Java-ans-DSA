@@ -22,6 +22,7 @@ public class sort012 {
     }
     sort012s(arr);
     print(arr);
+    scn.close();
   }
 
 private static void sort012s(int[] arr) {
