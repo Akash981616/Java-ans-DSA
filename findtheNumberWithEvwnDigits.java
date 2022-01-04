@@ -14,7 +14,7 @@ public static void main(String[] args) {
     }
     int count=findEvenNumbers(arr);
     System.out.print(count);
-    
+    scn.close();
 }
    public static int  findEvenNumbers(int []arr){
        int count =0;

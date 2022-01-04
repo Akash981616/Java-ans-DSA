@@ -14,7 +14,7 @@ public class RichestCustomerWealth {
         
     
         System.out.println(ans);
-
+scn.close();
 
        
         
