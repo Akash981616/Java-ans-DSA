@@ -12,7 +12,7 @@ public class SlidingWindow {
         for (int i = 0; i < n; i++) {
           arr[i] = Integer.parseInt(br.readLine());
         }
-        int k = Integer.parseInt(br.readLine());
+        // int k = Integer.parseInt(br.readLine());
         int nge[]=new int[arr.length];
         Stack <Integer>st=new Stack<>();
         st.push(arr.length-1);

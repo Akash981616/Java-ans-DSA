@@ -1,4 +1,3 @@
-import java.util.*;
 public class FindArrayInMountain {
     public static void main(String[] args) {
         int arr[]={1,5,2};

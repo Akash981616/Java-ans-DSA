@@ -6,6 +6,7 @@ public class FloorInBinarySearch {
       int target =scn.nextInt();
      int n=   floor(arr,target);
       System.out.println(n);
+      scn.close();
     }
   
   private static int floor(int[] arr, int target) {

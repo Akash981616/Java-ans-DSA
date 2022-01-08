@@ -1,7 +1,7 @@
-import java.util.*;
+
 public class BinarySearchIn2DArray {
     public static void main(String[] args) {
-        Scanner scn=new Scanner(System.in);
+      
         // int n=scn.nextInt();
         
         // int arr[][]=new int[n][n];

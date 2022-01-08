@@ -6,6 +6,7 @@ public class cielingInbinarySearch {
     int target =scn.nextInt();
    int n=   ceiling(arr,target);
     System.out.println(n);
+    scn.close();
   }
 
 private static int ceiling(int[] arr, int target) {
