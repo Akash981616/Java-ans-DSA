@@ -2,25 +2,24 @@ public class FlipAnImageLeetcode {
 
  public static int[][] main(String[] args) {
      int image[][]={{1,1,0},{1,0,1},{0,0,0}};
-     for (int[] element : image) {
-         for (int j = 0;j>(image[0].length+1)/2; j++) {
-            reversArray(j,image[0].length);  
-         }
-         
-     }
-     return image;
- }
-
- 
-
-static void reversArray(int start, int end) {
-    while (start<end) {
-        int temp=start^1;
-        start=end^1;
-        end=temp;
-        start++;
-        end--;
+     if (image == null || image.length == 0 || image[0].length == 0) {
+        return image;
     }
+
+    for (int[] row : image) {
+        int start = 0;
+        int end = row.length - 1;
+        while (start <= end) {
+            if (row[start] == row[end]) {
+                row[start] ^= 1;
+                row[end] = row[start];
+            }
+            start++;
+            end--;
+        }
+    }
+
+    return image;
 }   
 
  

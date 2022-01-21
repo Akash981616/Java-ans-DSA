@@ -15,6 +15,8 @@ public class binaryno {
             
         }
        System.out.println(ans);
+       scn.close();
+
     }
 } 
 

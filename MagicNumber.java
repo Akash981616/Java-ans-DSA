@@ -15,5 +15,7 @@ public class MagicNumber {
             
         }
        System.out.println(ans);
+       scn.close();
+
     }
 } 

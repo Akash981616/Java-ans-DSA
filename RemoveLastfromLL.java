@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.*;
 
 public class RemoveLastfromLL {
   public static class Node {

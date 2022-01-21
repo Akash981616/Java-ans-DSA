@@ -13,7 +13,7 @@ public class AtindexLL {
         Node head;
         Node tail;
         int size;
-        private int i;
+  
     
         void addLast(int val) {
           Node temp = new Node();

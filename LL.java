@@ -1,4 +1,3 @@
-import java.io.*;
     import java.util.*;
 public class LL {
     
@@ -40,6 +39,8 @@ public class LL {
             Scanner scn =new Scanner(System.in);  
                   LinkedList list = new LinkedList();
             int val =scn.nextInt();
+            
             list.addFirst(val);
+            scn.close();
         
 }}

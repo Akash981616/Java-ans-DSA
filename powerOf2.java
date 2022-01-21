@@ -17,5 +17,7 @@ public class powerOf2 {
             
         }
        System.out.println(count);
+       scn.close();
+
     }
 }

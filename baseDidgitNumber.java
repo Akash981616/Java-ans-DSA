@@ -22,6 +22,7 @@ public class baseDidgitNumber {
         // int base=binary||decimal||octal||hexadecimal;
         int ans =(int)(Math.log(n)/Math.log(b))+1;
         System.out.println(ans);
+        scn.close();
 
     }
 }
