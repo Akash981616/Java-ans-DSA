@@ -6,8 +6,9 @@ public class FindUniqueNumber {
 
 private static int ans(int[] arr) {
     int unique=0;
-for(int x:arr){
-    unique^=x;
+for (int index = 0; index < arr.length; index++) {
+        unique^=index;
+
 }
     return unique;
 }  
