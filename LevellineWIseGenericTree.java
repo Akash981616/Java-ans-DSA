@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class levelPrintOfGT {
+public class LevellineWIseGenericTree {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
@@ -91,20 +91,26 @@ public class levelPrintOfGT {
     System.out.println("Node Post " + node.data);
   }
 
-    public static void levelOrder(Node node){
-       Queue <Node>q=new ArrayDeque<>();
-           q.add(node);
-           while (q.size()>0) {
-               node=q.remove();
-               System.out.println(node.data+" ");
-               for(Node child:node.children){
-                q.add(child);
-               }
-
-               
-           }
-           System.out.print(".");
+  public static void levelOrderLinewise(Node node){
+   Queue <Node>rq=new ArrayDeque<>();
+   Queue <Node>cq=new ArrayDeque<>();
+   rq.add(node);
+   while (rq.size()>0) {
+     node=rq.remove();
+     System.out.print(node.data+" ");
+     for(Node child:node.children){
+       cq.add(child);
+     }
+     if(rq.size()==0){
+      rq=cq;
+      cq=new ArrayDeque<>();
+      System.out.println();
     }
+    
+   }
+   
+
+  }
 
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -116,7 +122,7 @@ public class levelPrintOfGT {
     }
 
     Node root = construct(arr);
-    levelOrder(root);
+    levelOrderLinewise(root);
   }
 
 }
