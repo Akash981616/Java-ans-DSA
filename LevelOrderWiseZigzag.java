@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class LevelOrderWiseZigzag {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();
@@ -91,18 +91,34 @@ public class Main {
     System.out.println("Node Post " + node.data);
   }
 
-  public static void levelOrder(Node node){
-   Queue <Node>q=new ArrayDeque<>();
-    q.add(node);
-    while(q.size()>0){
-        node=q.remove();
-        System.out.print(node.data+" ");
-        for(Node child:node.children){
-            q.add(child);
+  public static void levelOrderLinewiseZZ(Node node){
+     Stack< Node> ps = new Stack< >();
+     Stack<Node> cs = new Stack< >();
+     ps.push(node);
+     int level=1;
+     while(ps.size()>0){
+         node=ps.pop();
+         System.out.print(node.data+" ");
+         
+        if (level % 2 != 0) {
+        for (int i = 0; i < node.children.size(); i++) {
+          cs.push(node.children.get(i));
         }
-    }
-    System.out.print(".");
-    
+      } else {
+        for (int i = node.children.size() - 1; i >= 0; i--) {
+          cs.push(node.children.get(i));
+        }
+      }
+            if(ps.size()==0){
+                ps=cs;
+                cs=new Stack<>();
+               System.out.println();
+               level++;
+            }
+            
+          
+     }
+      System.out.println();
   }
 
   public static void main(String[] args) throws Exception {
@@ -115,7 +131,7 @@ public class Main {
     }
 
     Node root = construct(arr);
-    levelOrder(root);
+    levelOrderLinewiseZZ(root);
   }
 
 }
