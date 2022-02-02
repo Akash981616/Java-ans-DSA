@@ -108,8 +108,6 @@ public class LevellineWIseGenericTree {
     }
     
    }
-   
-
   }
 
   public static void main(String[] args) throws Exception {
