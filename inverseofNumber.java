@@ -3,7 +3,6 @@ public class inverseofNumber {
    public static void main(String[] args) {
     Scanner scn=new Scanner(System.in);
     int n=scn.nextInt();
-   
   
     int inverted = 0;
     int power = 1;
@@ -17,4 +16,5 @@ public class inverseofNumber {
     System.out.println(inverted);
     scn.close();
   }
+
 }
