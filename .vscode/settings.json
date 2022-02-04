@@ -1,3 +1,4 @@
 {
-    "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "java.project.sourcePaths": ["450/all", ""]
 }
