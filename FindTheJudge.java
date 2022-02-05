@@ -1,5 +1,4 @@
-import java.util.Collection;
-import java.util.PriorityQueue;
+
 
 /**
  * FindTheJudge
@@ -14,8 +13,8 @@ public static void main(String[] args) {
             
             for(int t[] : trust){
                 System.out.println(count[t[1]]++);
-                // count[t[0]]--;     // outdegree
-                // count[t[1]]++;   // indegree
+                count[t[0]]--;     // outdegree
+                count[t[1]]++;   // indegree
             }
             
             for(int i=1;i<=n;i++){

@@ -1,4 +1,5 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class LongestConsecutiveSeqOfEle {
@@ -32,7 +33,6 @@ public class LongestConsecutiveSeqOfEle {
 
             while(map.containsKey(tsp + tl)){
                tl++;
-        https://www.pepcoding.com/resources/online-java-foundation/hashmap-and-heap/lcqs-official/ojquestion#    }
 
             if(tl > ml){
                ml = tl;

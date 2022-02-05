@@ -1,8 +1,5 @@
-
-import java.io.*;
-/**
- * AtindexLL
- */
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 public class AtindexLL {
     public static class Node {
         int data;

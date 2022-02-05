@@ -1,7 +1,8 @@
-import java.io.*;
-import java.util.*;
 
-public class Main {
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+public class LevelorderGenricTree {
   private static class Node {
     int data;
     ArrayList<Node> children = new ArrayList<>();

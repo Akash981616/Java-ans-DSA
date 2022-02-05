@@ -1,4 +1,5 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
  public class AddLastInLinklist {
    
  
@@ -40,18 +41,19 @@ import java.io.*;
         } 
       }
       public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        LinkedList list = new LinkedList();
-    
-        String str = br.readLine();
-        while(str.equals("quit") == false){
-          if(str.startsWith("addLast")){
-            int val = Integer.parseInt(str.split(" ")[1]);
-            list.addLast(val);
-          } 
-          str = br.readLine();
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+          LinkedList list = new LinkedList();
+  
+          String str = br.readLine();
+          while(str.equals("quit") == false){
+            if(str.startsWith("addLast")){
+              int val = Integer.parseInt(str.split(" ")[1]);
+              list.addLast(val);
+            } 
+            str = br.readLine();
+          }
+  
+          testList(list);
         }
-    
-        testList(list);
       }
     }  
