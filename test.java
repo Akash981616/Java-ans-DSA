@@ -7,7 +7,8 @@ public class test {
         // String magazine = "aa";
         String s1="ab";
      String s2="eidbaooo";
-        System.out.print(checkInclusion(s1,s2));
+        // System.out.print(checkInclusion(s1,s2));/
+        System.out.print(11&1);
     }
 //     public static int firstUniqChar(String s) {
 //         for(char c : s.toCharArray()){
