@@ -13,33 +13,35 @@ public class InOrderMorrisTravsel {
     }
   }
 
-  public static TreeNode getRightMostNode(TreeNode leftNode,TreeNode curr){
-    while(leftNode.right!=null&&leftNode.right!=null){
-      leftNode=leftNode.right;
+  public static TreeNode rightMostNode(TreeNode node, TreeNode curr) {
+    while (node.right != null && node.right != curr) {
+      node = node.right;
     }
-    return leftNode;
+    return node;
   }
-  public static ArrayList<Integer> morrisInTraversal(TreeNode node) {
-    ArrayList<Integer>res=new ArrayList<>();
-    TreeNode curr=node;
-    while(curr!=null){
-    TreeNode leftNode=curr.left;
-    if(leftNode==null){
-      res.add(curr.val);
-      curr=curr.right;
-    }else{
-      TreeNode rightNode=getRightMostNode(leftNode,curr);
-      if(rightNode==null){
-        rightNode.right=curr;
-        curr=curr.left;
-      }else{
-        rightNode.right=null;
-        res.add(curr.val);
-        curr=curr.right;
+
+  public static ArrayList<Integer> morrisInTraversal(TreeNode Treenode) {
+    ArrayList<Integer> ans = new ArrayList<>();
+    TreeNode curr = Treenode;
+    while (curr != null) {
+      TreeNode leftTreeNode = curr.left;
+      if (leftTreeNode == null) { // left null
+        ans.add(curr.val);
+        curr = curr.right;
+      } else {
+        TreeNode rmost = rightMostNode(leftTreeNode, curr);
+        if (rmost.right == null) { // thread Creation
+          rmost.right = curr;
+          curr = curr.left;
+        } else { // thread Break
+          rmost.right = null;
+          ans.add(curr.val);
+          curr = curr.right;
+        }
       }
     }
-    }
-    return res;
+
+    return ans;
   }
 
   // input_section=================================================
@@ -75,3 +77,4 @@ public class InOrderMorrisTravsel {
     solve();
   }
 }
+                                
