@@ -51,12 +51,31 @@ public class TreeTravesal {
                path(ans,root.right);
        }
     
+// Inorder traversal
+
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+            ArrayList<Integer>ans=new ArrayList<>();
+            Stack<TreeNode>stack=new Stack<>();
+                    if(root==null) return ans;
+
+            TreeNode node=root;
+            while(stack.size()!=0||node!=null){
+            if(node!=null){
+                stack.add(node);
+                    node=node.left;
+                }else{
+                    node=stack.pop();
+                    ans.add(node.val);
+                    node=node.right;
+               }   
+            }
+            
+   return ans;
+}}
 
 
-
-
-
-    //InOrder Traversal
+    //InOrder Traversal recursive
     public List<Integer> inorderTraversal(TreeNode root) {
         ArrayList<Integer>ans=new ArrayList<>();
     if(root==null) return ans;
@@ -68,4 +87,7 @@ public class TreeTravesal {
             inOrder(ans,root.left);
             ans.add(root.val);
             inOrder(ans,root.right);
-    }}
+    }
+
+
+}
