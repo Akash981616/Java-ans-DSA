@@ -1,5 +1,19 @@
 import java.util.*;
 public class TreeTravesal {
+    public class TreeNode{
+        int val;
+        TreeNode right;
+        TreeNode left;
+        TreeNode(int val ){
+            this.val=val;
+
+            
+        }
+        TreeNode (TreeNode right,TreeNode left){
+            this.right=right;
+            this.left=left;
+        }
+    }
     public static void main(String[] args) {
         /**
  * Definition for a binary tree node.
@@ -126,7 +140,7 @@ class Solution {
             postOrder(res,root.right);
             res.add(root.val);
     }
-    // Zig Zag Traversal
+    // Level Order  Traversal
     class Solution {
         public List<List<Integer>> levelOrder(TreeNode root) {
                 List<List<Integer>>res=new ArrayList<>();
@@ -147,4 +161,72 @@ class Solution {
             return res;
         }
     }
+    // zig zag level order Traversal
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>>res=new ArrayList<>();
+            if(root==null)return res;
+        Queue<TreeNode>q=new LinkedList<>();
+           q.add(root);
+            int level=0;
+            while(q.size()!=0){
+            List<Integer>currLevel=new ArrayList<>();
+            Stack<Integer>stack=new Stack<>();
+            int n=q.size();
+                 for(int i=0;i<n;i++){
+                         TreeNode temp=q.poll();
+                         if(level%2==0){
+                         currLevel.add(temp.val);
+                         }else{
+                         stack.add(temp.val);
+                         }
+                         if(temp.left!=null)q.add(temp.left);
+                         if(temp.right!=null)q.add(temp.right);
+                 }
+                    while(!stack.isEmpty()){
+                        currLevel.add(stack.pop());      
+                    }
+                    level++;
+                res.add(currLevel);
+            }
+       return res;
+    }        
+}
+
+// depth of tree  ireative;
+class Solution {
+    public int maxDepth(TreeNode root) {
+      if(root == null) {
+          return 0;
+      }
+      Queue<TreeNode> queue = new LinkedList<>();
+      queue.add(root);
+      int level = 0;
+            while(queue.size()!=0){
+                    int n=queue.size();
+                    for(int i=0;i<n;i++){
+                           TreeNode node=queue.poll();
+                            if(node.right!=null) queue.add(node.right);
+                            if(node.left!=null) queue.add(node.left);
+                    }
+                    level++;
+            }
+      
+      return level;
+  }
+  }
+//   recursive solution of depth of tree
+class Solution {
+    public int maxDepth(TreeNode root) {
+      if(root == null) {
+          return 0;
+      }
+     int left=maxDepth(root.left);
+     int right=maxDepth(root.right);
+      return Math.max(left,right)+1;
+  }
+  }
+  
+
+
 }
