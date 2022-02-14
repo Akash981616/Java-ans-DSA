@@ -51,14 +51,16 @@ public class TreeTravesal {
                path(ans,root.right);
        }
     
-// Inorder traversal
 
+
+
+
+// Inorder traversal
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
             ArrayList<Integer>ans=new ArrayList<>();
             Stack<TreeNode>stack=new Stack<>();
                     if(root==null) return ans;
-
             TreeNode node=root;
             while(stack.size()!=0||node!=null){
             if(node!=null){
@@ -73,8 +75,6 @@ class Solution {
             
    return ans;
 }}
-
-
     //InOrder Traversal recursive
     public List<Integer> inorderTraversal(TreeNode root) {
         ArrayList<Integer>ans=new ArrayList<>();
@@ -90,4 +90,40 @@ class Solution {
     }
 
 
+
+
+    // preOrder irterative
+    class Solution {
+        public List<Integer> postorderTraversal(TreeNode root) {
+                List<Integer>res=new ArrayList<>();
+                Stack<TreeNode>s1=new Stack<>();
+                Stack<TreeNode>s2=new Stack<>();
+                if(root==null)return res;
+                s1.push(root);
+                while(!s1.isEmpty()){
+                        TreeNode temp=s1.pop();
+                       s2.push(temp);
+                if(temp.left!=null)s1.push(temp.left);
+                if(temp.right!=null)s1.push(temp.right);  
+                }
+                while(!s2.isEmpty()){
+                TreeNode temp=s2.pop();
+                        res.add(temp.val);
+                }
+                return res;
+        }
+    }
+    // preOrder recursive
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer>res=new ArrayList<>();
+        if(root==null)return res;
+            postOrder(res,root);
+        return res;
+}
+    public static void postOrder(List<Integer>res,TreeNode root){
+            if(root==null)return;
+            postOrder(res,root.left);
+            postOrder(res,root.right);
+            res.add(root.val);
+    }
 }
