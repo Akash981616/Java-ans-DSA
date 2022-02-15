@@ -14,6 +14,20 @@ public class TreeTravesal {
             this.left=left;
         }
     }
+    public class Node{
+        int val;
+        TreeNode right;
+        TreeNode left;
+        Node(int val ){
+            this.val=val;
+
+            
+        }
+        Node (TreeNode right,TreeNode left){
+            this.right=right;
+            this.left=left;
+        }
+    }
     public static void main(String[] args) {
         /**
  * Definition for a binary tree node.
@@ -226,7 +240,81 @@ class Solution {
       return Math.max(left,right)+1;
   }
   }
-  
+  if(root==null)System.out.println("null");
+TreeMap<Integer,Integer>map=new TreeMap<>();
+topView(root,map);
+ArrayList<Integer>res=new ArrayList<>(map.values());
+return res;
+    
+}
+ static void topView(Node root,TreeMap<Integer,Integer>map){
+    Queue<Node>q=new LinkedList<>();
+    Queue<Integer>level=new LinkedList<>();
+    q.add(root);
+    level.add(0);
+    while(!q.isEmpty()){
+        int idx=level.poll();
+        Node temp=q.poll();
+        if(!map.containsKey(idx)){map.put(idx,temp.data);}
+        if(temp.left!=null){
+            q.add(temp.left);
+            level.add(idx-1);
+        }
+        if(temp.right!=null){
+            q.add(temp.right);
+            level.add(idx+1);
+        }
+    }
+}
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> verticalTraversal(TreeNode root) {
+ TreeMap<Integer, List<Integer>> map = new TreeMap<>();            
+            List<List<Integer>>res=new ArrayList<>();
+            if(root==null)return res;
+            verticalOrder(root,map);
+            res.addAll(map.values());
+        return res;
+    }
+        public static void verticalOrder(TreeNode root,TreeMap<Integer,List<Integer>>map){
+                Queue<TreeNode>q=new LinkedList<>();
+                Queue<Integer>level=new LinkedList<>();
+                
+                q.add(root);
+                level.add(0);
+                while(q.size()>0){
+                        TreeNode node=q.poll();
+                        int idx=level.poll();
+                        
+                        if(!map.containsKey(idx)) {map.put(idx,new ArrayList<>());}
+                        map.get(idx).add(node.val);
+                        if(node.left!=null){
+                                q.add(node.left);
+                                level.add(idx-1);
+                        }
+                        if(node.right!=null){
+                                q.add(node.right);
+                                level.add(idx+1);
+                        }
+                        
+                }
+
+        }
+}
 
 
 }
