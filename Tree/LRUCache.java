@@ -1,5 +1,7 @@
 package Tree;
 
+package Tree;
+
 import java.util.*;
 
 class Main {

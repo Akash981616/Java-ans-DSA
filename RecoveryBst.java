@@ -134,4 +134,3 @@ public class RecoverBinarySearchTree {
     public static void main(String[] args) {
         solve();
     }
-}

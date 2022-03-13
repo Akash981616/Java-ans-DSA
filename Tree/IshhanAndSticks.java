@@ -1,5 +1,7 @@
 package Tree;
 
+package Tree;
+
 // { Driver Code Starts
 //Initial Template for Java
 
@@ -77,6 +79,5 @@ class Complete{
             res.add(sq);
         return res;
     }
-    
-    
 }
+    

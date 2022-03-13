@@ -1,5 +1,7 @@
 package Tree;
 
+
+
 import java.util.Scanner;
 
 public class constructTreefromInorder {
@@ -58,4 +60,3 @@ public class constructTreefromInorder {
     public static void main(String[] args) {
         solve();
     }
-}

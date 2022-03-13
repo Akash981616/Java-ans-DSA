@@ -1,5 +1,7 @@
 package Tree;
 
+package Tree;
+
 import java.util.Scanner;
 
 // both solution with pair ans wothout pair
@@ -82,4 +84,3 @@ public class Main {
     public static void main(String[] args) {
         solve();
     }
-}
