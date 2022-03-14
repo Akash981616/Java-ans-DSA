@@ -2,7 +2,7 @@ package Tree;
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class dijkstraAlgorithm {
    static class Edge {
       int src;
       int nbr;
