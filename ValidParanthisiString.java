@@ -58,7 +58,7 @@ public class ValidParanthisiString {
  }
 }
 //method  2 with stack  TN=0(N) SC=O(N)
-class Solution {
+class Solutiontr {
     public String minRemoveToMakeValid(String s) {
            char ch[]=s.toCharArray();
             Stack<Integer>stack=new Stack<>();
