@@ -1,3 +1,4 @@
+package Tree;
 class Solution {
     public int shortestPathLength(int[][] graph) {
         if (graph.length == 1) {
