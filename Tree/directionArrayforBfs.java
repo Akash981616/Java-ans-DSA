@@ -8,12 +8,7 @@ public class directionArrayforBfs {
        int[][] dirs = new int[][] { { 1, 0 }, { -1, 0 }, { 0, 1 }, { 0, -1 } };
        int x=0;
        int y=1;
-for(int []dir:dirs){
-    x=x+dir[0];
-    y=y+dir[1];
-    System.out.println(grid[x][y]);
 
-}
     }
 
 }
