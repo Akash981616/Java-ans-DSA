@@ -17,7 +17,7 @@ public class AllPermutations {
             for (int div=str.length(); div >=1; div--) {
                 int q=dvd/div;
                 int r=dvd%div;
-                System.out.println(r);
+                System.out.print(r);
                 dvd=q;
                 d.deleteCharAt(r);
 
