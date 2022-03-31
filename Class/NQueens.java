@@ -64,7 +64,8 @@ public class NQueens {
     // NQueen================================================================================
 
     public static boolean isSafeToPlaceQueen(boolean[][] boxes, int r, int c) {
-        int[][] dir = { { 0, -1 }, { -1, -1 }, { -1, 0 }, { -1, 1 } };
+        //int[][] dir = { { 0, -1 }, { -1, -1 }, { -1, 0 }, { -1, 1 } };
+       int[][] dir = { { 0, -1 }, { -1, -1 }, { -1, 0 }, { -1, 1 },  { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 } };
         int n = boxes.length;
         for (int d = 0; d < dir.length; d++) {
             for (int rad = 1; rad <= n; rad++) {
@@ -98,7 +99,7 @@ public class NQueens {
         return count;
     }
 
-    public static int nqueen_01permu(boolean[][] boxes, int tnq, String psf) {
+    public static int nqueen_01_Perm(boolean[][] boxes, int tnq, String psf) {
         if (tnq == 0) {
             System.out.println(psf);
             return 1;
@@ -108,13 +109,13 @@ public class NQueens {
             int r = bidx / n, c = bidx % n;
             if (!boxes[r][c] && isSafeToPlaceQueen(boxes, r, c)) {
                 boxes[r][c] = true;
-                count += nqueen_01permu(boxes, tnq - 1, psf + "(" + r + "," + c + ") ");
+                count += nqueen_01_Perm(boxes, tnq - 1, psf + "(" + r + "," + c + ") ");
                 boxes[r][c] = false;
             }
         }
         return count;
     }
-  
+
     public static void main(String... args) {
         // System.out.println(queenCombination1D(boxes, 3, 0, 0, ""));
         // System.out.println(queenPermutation1D(boxes, 3, 0, ""));
@@ -122,7 +123,8 @@ public class NQueens {
         // System.out.println(queenCombination2D(boxes, 4, 0, ""));
         // System.out.println(queenPermutation2D(boxes, 4, ""));
 
-        System.out.println(nqueen_01permu(boxes, 4, ""));
+        // System.out.println(nqueen_01(boxes, 4, 0, ""));
+        System.out.println(nqueen_01(boxes, 4,0, ""));
     }
 
 }
