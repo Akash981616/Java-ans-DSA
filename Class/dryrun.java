@@ -6,35 +6,34 @@ package Class;
 import java.util.*;
 public class dryrun {
     public static void main(String[] args) {
-        int nums[]={1,3,4,2,2};
+        int nums[]={1,2,3,4,5,6};
         //subsets(nums );
-    System.out.println(18%6);
-    //      List<List<Integer>>gridOfNodes=new ArrayList<>();
-    //      List<Integer>r1=new ArrayList<>();
-    //      r1.add(1);
-    //      r1.add(1);
-    //      r1.add(1);
-    //      List<Integer>r2=new ArrayList<>();
-    //      r2.add(0);
-    //      r2.add(1);
-    //      r2.add(0);
-    //      List<Integer>r3=new ArrayList<>();
-    //      r3.add(0);
-    //      r3.add(0);
-    //      r3.add(1);
-    //      List<Integer>r4=new ArrayList<>();
-    //      r4.add(1);
-    //      r4.add(1);
-    //      r4.add(0);
-    //      gridOfNodes.add(r1);
-    //      gridOfNodes.add(r2);
-    //    gridOfNodes.add(r2);
-    //    gridOfNodes.add(r3);
+     //  rearrange(nums,6);
+    System.out.println(5%8);
 
-
-    //     System.out.println(numberOfConnections(gridOfNodes));
+    //  System.out.println(numberOfConnections(gridOfNodes));
         //getFactorail(3);
 }
+public static void rearrange(int arr[], int n){
+    int max_index=n-1;
+    int min_index=0;
+    int max=arr[n-1]+1;
+    System.out.println(31/max+"fdsfsdfs");
+    for(int i=0;i<n;i++){
+          if(i%2==0){
+          arr[i]=(int)(arr[max_index]%max)*max+arr[i]; 
+          max_index--;
+          }else{
+          arr[i]=(int)(arr[min_index]%max)*max+arr[i]; 
+          min_index++;
+          }
+    }
+        for(int i=0;i<n;i++){
+          //  arr[i]/=max;
+                        System.out.println(arr[i]);
+        }
+        
+    }
 public static int numberOfConnections(List<List<Integer>> gridOfNodes)
     {
         int n = gridOfNodes.size();
