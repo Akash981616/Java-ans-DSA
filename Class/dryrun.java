@@ -5,11 +5,9 @@ package Class;
  */
 import java.util.*;
 public class dryrun {
-    public static void main(String[] args) {
-        int nums[]={1,2,3,4,5,6};
-        //subsets(nums );
-     //  rearrange(nums,6);
-    System.out.println(5%8);
+;
+    
+    System.out.println(~n);
 
     //  System.out.println(numberOfConnections(gridOfNodes));
         //getFactorail(3);
