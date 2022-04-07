@@ -5,13 +5,88 @@ package Class;
  */
 import java.util.*;
 public class dryrun {
-;
+public static void main(String[] args) {
+   int [][] A = {   {1, 3, 5},
+                      {2, 6, 9},
+                      {3, 6, 9}   };
+                      
+           System.out.println(findMedian(A)); 
+   
+}
+public static int findMedian(int[][] A) {
+  
+    int low=0;
+    int high=(int)10e9;
+    int ans=0;
+    while(low<=high){
+      int mid=low+(high-low)/2;
+      if(isLessThanHalf(A,mid)){
+          low=mid+1;
+      }else{
+           ans=mid;
+          high=mid-1;
+      }
+      
+    }
+    return ans;
+}
+
+static boolean isLessThanHalf(int [][] a, int num) {
+    int N = a.length;
+    int M = a[0].length;
+    int count = 0;
+      
+    for(int i = 0; i < N; i++) {
+        count += getCount(a[i], num);
+    }
+    return count < (N*M)/2 + 1;
+}
+static int getCount(int [] a, int n) {
+    int lo = 0;
+    int hi = a.length-1;
+    while(lo <= hi) {
+        int mid = (lo+hi)/2;
+        if(a[mid] > n) hi = mid-1;
+        else lo = mid+1;
+    }
+    return lo;
+}
     
-    System.out.println(~n);
+    public static List<Integer> eventualSafeNodes(int[][] graph) {
+       // int graph[][]={{1,2},{2,3},{5},{0},{5},{},{}};
+       // System.out.println(eventualSafeNodes(graph));
+       int N = graph.length;
+       int[] color = new int[N];
+       List<Integer> res = new ArrayList<>();
+       for (int i = 0; i < N; i++) {
+           if (dfs(i, color, graph))
+               res.add(i);
+       }
+       return res;
+   }
+   private static boolean dfs(int i, int[] color, int[][] graph) {
+       if (color[i] > 0) {
+
+           return color[i] == 2;
+       }
+       
+       color[i] = 1;
+       for (int neighbor : graph[i]) {
+           if (color[neighbor] == 2) continue;
+             System.out.print(neighbor);
+               System.out.println();
+           if (color[neighbor] == 1 || !dfs(neighbor, color, graph)) 
+               return false;
+       }
+       color[i] = 2;
+       return true;
+   }
+    
 
     //  System.out.println(numberOfConnections(gridOfNodes));
         //getFactorail(3);
-}
+
+
 public static void rearrange(int arr[], int n){
     int max_index=n-1;
     int min_index=0;
