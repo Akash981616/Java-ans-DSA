@@ -44,3 +44,91 @@ class Solution {
                 }
         }
 }
+static String str1 = "send", str2 = "more", str3 = "money";
+    static boolean[] isNumUsed = new boolean[10];
+    
+    public static void crypto() {
+        String str = str1 + str2 + str3;
+        int[] freq = new int[26];
+        for (int i = 0; i < str.length(); i++) {
+            freq[str.charAt(i) - 'a']++;
+        }
+
+        str = "";
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] > 0)
+                str += (char) (i + 'a');
+        }
+
+        if (str.length() > 10)
+            return;
+    }
+
+    public static int crypto(String str, int idx,HashMap<Character> h1) {
+        if (idx == str.length()) {
+            if (valid(h1) == true) {
+                return 1;
+            }
+
+            return 0;
+        }
+
+        int count = 0;
+        for (int num = 0; num <= 9; num++) {
+            if (!isNumUsed[num]) {
+                isNumUsed[num] = true;
+                if(h1.containsKey(str.charAt(idx)) == false){
+                 h1.put(str.charAt(idx),num);
+                }
+                count += crypto(str, idx + 1);
+
+                isNumUsed[num] = false;
+
+                if(h1.containsKey(str.charAt(idx)) == true){
+                 h1.remove(str.charAt(idx));
+                }                
+            }
+
+        }
+
+        return count;
+    }
+
+    private static boolean valid(HashMap<Character> h1){
+      int val1 = 0;
+      int power = 1;
+      for(int i = 0;i<str1.length;i++){
+        if(h1.conatainsKey(str1.charAt(i)) == true){
+          int k = h1.get(str1.charAt(i));
+          val1 = val1*Math.pow(10,power-1)+k;
+          power++;
+        }
+      }
+
+      int val2 = 0;
+      int powe1 = 1;
+      for(int i = 0;i<str2.length;i++){
+        if(h1.conatainsKey(str2.charAt(i)) == true){
+          int k = h1.get(str2.charAt(i));
+          val2 = val2*Math.pow(10,powe1-1)+k;
+          powe1++;
+        }
+      }
+
+
+      int val3 = 0;
+      int power3 = 1;
+      for(int i = 0;i<str3.length;i++){
+        if(h1.conatainsKey(str3.charAt(i)) == true){
+          int k = h1.get(str3.charAt(i));
+          val3 = val3*Math.pow(10,power3-1)+k;
+          power3++;
+        }
+      }
+
+      if(val1+val2 == val3){
+        return true;
+      }else{
+        return false;
+      }
+    }
