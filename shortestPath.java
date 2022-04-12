@@ -30,12 +30,7 @@ public class shortestPath {
 
     public static void main(String[] args) {
         // System.out.println(mazePath(0, 0, 2, 2, ""));
-        int mat[][]={{1,1,1,1},
-            {1,1,1,1},{1,1,1,1}};
-        int[][] dir = { { 0, 1 }, { 1, 0 }, { 1, 1 } };
-        String[] dirS = { "h", "v", "d" };
-        pairSP res=shortesPath(0,0,4,4,mat,dir,dirS);
-        System.out.println(res.len);
-        System.out.println(res.str);
+        
+        System.out.println(((3>>1)&1));
     }
 }
