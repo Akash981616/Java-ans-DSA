@@ -31,6 +31,6 @@ public class shortestPath {
     public static void main(String[] args) {
         // System.out.println(mazePath(0, 0, 2, 2, ""));
         
-        System.out.println(((3>>1)&1));
+        System.out.println(2%4);
     }
 }
