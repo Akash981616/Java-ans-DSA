@@ -1,6 +1,6 @@
 package Class;
 
-public class Bit {
+class Bit {
    public static void main(String[] args) {
        System.out.println(setbit(1,2));
    }
