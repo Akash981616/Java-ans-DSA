@@ -1,8 +1,9 @@
 import java.io.*;
 import java.util.*;
 public class Main {
- private static void create_Zarr(String str, int[] Z) 
-        int n = str.length();
+ private static void create_Zarr(String str, int[] Z) {
+               int n = str.length();
+	        int Z[]=new int [n];
         // [left,right] make a window which matches with
         // prefix of s
         int left = 0, right = 0;
