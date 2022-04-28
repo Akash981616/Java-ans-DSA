@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Main {
+public class ZAlgorithm {
  private static void create_Zarr(String str, int[] Z) {
                int n = str.length();
 	        int Z[]=new int [n];

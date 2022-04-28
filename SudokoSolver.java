@@ -1,5 +1,52 @@
 import java.util.*;
+
 public class SudokoSolver {
+    import java.io.*;
+import java.util.*;
+
+public class Main {
+
+  public static void solution(boolean[][] board, int r, int cols, int ndiag, int rdiag, String asf) {
+    // write your code here
+    if(r==board.length)
+    {
+        System.out.println(asf+".");
+        return;
+    }
+    for (int c = 0; c < board.length; c++)
+    {
+      int cbm = 1 << c;
+      int ndbm = 1 << (r + c);
+      int rdbm = 2 << (r - c + board.length - 1);
+      if ((cbm & cols) == 0 && (ndbm & ndiag) == 0 && (ndbm & ndiag) == 0 && (rdiag & rdbm) == 0)
+      {
+        cols = (cbm | cols);
+        ndiag = (ndbm | ndiag);
+        rdiag = (rdiag | rdbm);
+        
+        solution(board,r+1,cols,ndiag,rdiag,asf+r+"-"+c+", ");
+        
+        cols = (cbm ^ cols);
+        ndiag = (ndbm ^ ndiag);
+        rdiag = (rdiag ^ rdbm);
+      }
+    }
+
+
+  }
+
+
+  public static void main(String[] args) throws Exception {
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    boolean[][] board = new boolean[n][n];
+    int cols = 0;
+    int ndiag = 0;
+    int rdiag = 0;
+    solution(board, 0, cols, ndiag, rdiag, "");
+  }
+
+}
         // Sudoku
          // 139 : word break
          public boolean wordBreak(String str, String asf, HashSet<String> set) {
