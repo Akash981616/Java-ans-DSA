@@ -10,6 +10,7 @@ public class primsWIthDSU {
                 pq.add(new int[]{ findDist(points, i, j), i, j });
             }
         }
+        ///s
         int count = 0;
         UnionFind uf = new UnionFind(n);
         while(count < n-1) {
