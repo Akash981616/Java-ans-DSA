@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class KmpPattern {
 
   public static void main(String[] args) {
     Scanner scn = new Scanner(System.in);

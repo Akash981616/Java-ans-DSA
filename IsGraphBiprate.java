@@ -5,7 +5,7 @@ public class IsGraphBiprate {
    
 
    public static void main(String[] args) throws Exception {
-     int graph[][]= {{1,2,3},{0,2},{0,1,3},{0,2}};
+     int graph[][] = { { 1, 3 }, { 0, 2 }, { 1, 3 }, { 0, 2 } };
 
      
  
@@ -24,13 +24,11 @@ public class IsGraphBiprate {
          static boolean dfs(int i, int[] colors, int[][] graph, int color) {
              if (colors[i] == 0) { // if no color added perform below steps
                  colors[i] = color;//add color;
-                     System.out.println(colors[i]+"->"+i);
                  for (int x : graph[i]) {
                      if (!dfs(x, colors, graph, -color)) //change color for adjacent vertex.
                          return false;
                  }
              } else {
-                     System.out.println(colors[i]+"-"+i);
                  return colors[i] == color;
              }
              return true;

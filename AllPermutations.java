@@ -14,16 +14,16 @@ public class AllPermutations {
         for (int i = 0; i < n; i++) {
             StringBuilder d=new StringBuilder(str);
             int dvd=i;
-            for (int div=str.length(); div >=1; div--) {
-                int q=dvd/div;
-                int r=dvd%div;
+            for (int div = str.length(); div >= 1; div--) {
+                int q = dvd / div;
+                int r = dvd % div;
                 System.out.print(r);
-                dvd=q;
+                dvd = q;
                 d.deleteCharAt(r);
 
-
-                
             }
+            StringBuilder ans = new StringBuilder();
+            ans.equals())
               System.out.println();
             
         }
