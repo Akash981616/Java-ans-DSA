@@ -56,14 +56,15 @@ public class primsWIthDSU {
     private class UnionFind {
         int[] component;
         int distinctComponents;
-        
+
         public UnionFind(int n) {
-            component = new int[n+1];
+            component = new int[n + 1];
             for (int i = 0; i <= n; i++) {
                 component[i] = i;
             }
             distinctComponents = n;
         }
+
         // unite. For example, if previously we have component {0, 4, 4, 4, 4, 6, 7, 7}, then invoke this method with a=1, b=5, then after invoke, {0, 4, 4, 4, 5, 7, 7, 7}
         private boolean unite(int a, int b) {
             if (findComponent(a) != findComponent(b)) {
@@ -71,10 +72,10 @@ public class primsWIthDSU {
                 distinctComponents--;
                 return true;
             }
-            
+
             return false;
         }
-        
+
         // find and change component
         // for example, if previously we have component:{0, 2, 3, 4, 4, 6, 7, 7}, then after invoke this method with a=1, the component become {0, 4, 4, 4, 4, 6, 7, 7}
         private int findComponent(int a) {
@@ -83,14 +84,14 @@ public class primsWIthDSU {
             }
             return component[a];
         }
-        
+
         private boolean united() {
             return distinctComponents == 1;
         }
-        
+
     }
 
-=======
+
    class Solution {
     public int minCostConnectPoints(int[][] points) {
         int n = points.length, ans = 0;
@@ -132,5 +133,5 @@ public class primsWIthDSU {
         }
     }
 } 
->>>>>>> f9241e5beda5fa964ecb40d2e93bd8eaf843041c
+
 }
