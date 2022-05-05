@@ -23,7 +23,7 @@ public class AllPermutations {
 
             }
             StringBuilder ans = new StringBuilder();
-            ans.equals())
+     
               System.out.println();
             
         }
