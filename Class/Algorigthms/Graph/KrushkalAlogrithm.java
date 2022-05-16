@@ -1,4 +1,4 @@
-package Class.Algorigthms;
+package Class.Algorigthms.Graph;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

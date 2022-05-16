@@ -1,7 +1,7 @@
 package Class.Algorigthms.Graph;
 import java.util.*;
 public class primsWIthDSU {
-<<<<<<< HEAD
+
     class Solution {
         public int minCostConnectPoints(int[][] points) {
             int n = points.length, ans = 0;

@@ -1,3 +1,4 @@
+package Class.Algorigthms.Dp;
 class Solution {
     public int[] longestObstacleCourseAtEachPosition(int[] obstacles) {
         int i = -1, cur = 0, lisSize = -1;

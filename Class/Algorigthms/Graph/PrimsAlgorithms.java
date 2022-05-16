@@ -1,3 +1,4 @@
+package Class.Algorigthms.Graph;
 package .vscode;
 
 import java.io.*;
