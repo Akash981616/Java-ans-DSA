@@ -3,22 +3,6 @@ package Class.Tree;
 import java.util.Scanner;
 
 public class cameraInTree {
-    public static Scanner scn = new Scanner(System.in);
-
-    public static class TreeNode {
-        int val = 0;
-        TreeNode left = null;
-        TreeNode right = null;
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-    }
-    public static int camera=0;
-    //0 cover
-    //-1 need Camera
-    //1 already have one
-    public static int cameraNeed(TreeNode root){
         if(root==null){
             return 1;
         }
