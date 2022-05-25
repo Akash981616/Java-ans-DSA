@@ -4,7 +4,44 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class TrappingRainingWater {
+    public static void main(String[] args) {
+        int arr[] = { 40, 20, 30, 10, 30 };
+        int n = arr.length ;
+        int dp[][] = new int[arr.length ][arr.length ];
+        int ans =mcm_memo(arr,0,n-1,dp);
+        
+        display(dp);
+        System.out.print(ans);
+    }
+    
+  public static int mcm_memo(int[] arr, int si, int ei, int[][] dp) {
+        if (ei - si == 1) {
+            return dp[si][ei] = 0;
+        }
 
+        if (dp[si][ei] != 0)
+            return dp[si][ei];
+
+        int minRes = (int) 1e9;
+        for (int cut = si + 1; cut < ei; cut++) {
+            int leftRes = mcm_memo(arr, si, cut, dp);
+            int rightRes = mcm_memo(arr, cut, ei, dp);
+
+            minRes = Math.min(minRes, leftRes + arr[si] * arr[cut] * arr[ei] + rightRes);
+        }
+
+        return dp[si][ei] = minRes;
+    }
+
+    public static void display(int dp[][]) {
+        for (int d[] : dp) {
+            for (int ele : d) {
+                System.out.print(ele + " ");
+            }
+            System.out.println();
+        }
+    }
+}
     class Solution {
         class Pair {
             int r;
@@ -65,7 +102,7 @@ public class TrappingRainingWater {
             return water;
         }
     }
-}
+
 
 class Solution {
     int dp[][][];
@@ -106,5 +143,33 @@ class Solution {
             count[c - '0']++;
         }
         return count;
+    }
+}
+
+class Solution {
+    public boolean canPartition(int[] nums) {
+        int sum = 0, n = nums.length;
+            for (int ele : nums)
+                sum += ele;
+            if (sum % 2 == 1)
+                return false;
+            boolean dp[][] = new boolean[nums.length + 1][sum / 2 + 1];
+            return isPossible(nums, n, sum / 2, dp);
+    }
+
+    private boolean isPossible(int[] nums, int n, int target, boolean dp[][]) {
+        if (target == 0 || n == 0) {
+            return target == 0 ? true : false;
+        }
+        if (dp[n][target] != 0)
+            return dp[n][target];
+
+        boolean slect = false;
+        boolean notSelect = false;
+        if (target - nums[n - 1] >= 0) {
+            select = isPossible(nums, n - 1, target - nums[n - 1], dp);
+            notSelect = isPossible(nums, n - 1, target, dp);
+        }
+        return dp[n][target] = slect || notSelect;
     }
 }

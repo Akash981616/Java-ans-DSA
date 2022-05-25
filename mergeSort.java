@@ -63,10 +63,12 @@ public class mergeSort {
         for (int i = 0; i < n; i++) {
           arr[i] = scn.nextInt();
         }
-        int[] sa = mergeSorts(arr,0,arr.length - 1);
+        int[] sa = mergeSorts(arr, 0, arr.length - 1);
         System.out.print("Sorted Array -> ");
         print(sa);
         scn.close();
       }
     
+      
+
     }
