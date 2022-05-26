@@ -1,46 +1,121 @@
-package Class.Algorigthms.Graph;
+
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+
+
 public class TrappingRainingWater {
     public static void main(String[] args) {
-        int arr[] = { 40, 20, 30, 10, 30 };
-        int n = arr.length ;
-        int dp[][] = new int[arr.length ][arr.length ];
-        int ans =mcm_memo(arr,0,n-1,dp);
-        
+        // int arr[] = { 40, 20, 30, 10, 30 };
+        // int n = arr.length;
+        // int dp[][] = new int[arr.length][arr.length];
+        // int ans = mcm_memo(arr, 0, n - 1, dp);
+
+        // display(dp);
+        // System.out.print(ans);
+        String s = "1+2*3+4*5";
+
+        int n = s.length();
+        pairmm dp[][] = new pairmm[n][n];
+        pairmm res = minMax(s, 0, n - 1, dp);
+        System.out.println(res.min);
+        System.out.println(res.max);
         display(dp);
-        System.out.print(ans);
     }
-    
-  public static int mcm_memo(int[] arr, int si, int ei, int[][] dp) {
-        if (ei - si == 1) {
-            return dp[si][ei] = 0;
+   public static class pairmm {
+        int min = (int) 1e9;
+        int max = 0;
+
+        pairmm() {
+
         }
 
-        if (dp[si][ei] != 0)
+        pairmm(int val) {
+            this.min = this.max = val;
+        }
+    }
+
+    public static pairmm evaluateMinMax(pairmm leftRes, pairmm rightRes, char operator) {
+        pairmm pair = new pairmm();
+        if (operator == '+') {
+            pair.min = leftRes.min + rightRes.min;
+            pair.max = leftRes.max + rightRes.max;
+        } else if (operator == '*') {
+            pair.min = leftRes.min * rightRes.min;
+            pair.max = leftRes.max * rightRes.max;
+        }
+        return pair;
+    }
+
+    public static pairmm minMax(String str, int si, int ei, pairmm[][] dp) {
+        if (si == ei) {
+            return dp[si][ei] = new pairmm((str.charAt(si) - '0'));
+        }
+
+        if (dp[si][ei] != null)
             return dp[si][ei];
 
-        int minRes = (int) 1e9;
-        for (int cut = si + 1; cut < ei; cut++) {
-            int leftRes = mcm_memo(arr, si, cut, dp);
-            int rightRes = mcm_memo(arr, cut, ei, dp);
+        pairmm myRes = new pairmm();
+        for (int cut = si + 1; cut < ei; cut += 2) {
+            pairmm leftRes = minMax(str, si, cut - 1, dp);
+            pairmm rightRes = minMax(str, cut + 1, ei, dp);
+            pairmm pair = evaluateMinMax(leftRes, rightRes, str.charAt(cut));
 
-            minRes = Math.min(minRes, leftRes + arr[si] * arr[cut] * arr[ei] + rightRes);
+            myRes.min = Math.min(myRes.min, pair.min);
+            myRes.max = Math.max(myRes.max, pair.max);
         }
 
-        return dp[si][ei] = minRes;
+        return dp[si][ei] = myRes;
     }
-
-    public static void display(int dp[][]) {
-        for (int d[] : dp) {
-            for (int ele : d) {
+    public static void display(pairmm dp[][]) {
+        for (pairmm d[] : dp) {
+            for (pairmm ele : d) {
                 System.out.print(ele + " ");
             }
             System.out.println();
         }
     }
+
+//     public static int mcm_memo(int[] arr, int si, int ei, int[][] dp) {
+//         if (ei - si == 1) {
+//             return dp[si][ei] = 0;
+//         }
+
+//         if (dp[si][ei] != 0)
+//             return dp[si][ei];
+
+//         int minRes = (int) 1e9;
+//         for (int cut = si + 1; cut < ei; cut++) {
+//             int leftRes = mcm_memo(arr, si, cut, dp);
+//             int rightRes = mcm_memo(arr, cut, ei, dp);
+
+//             minRes = Math.min(minRes, leftRes + arr[si] * arr[cut] * arr[ei] + rightRes);
+//         }
+
+//         return dp[si][ei] = minRes;
+//     }
+    
+//   public static int mcm_memo(int[] arr, int si, int ei, int[][] dp) {
+//         if (ei - si == 1) {
+//             return dp[si][ei] = 0;
+//         }
+
+//         if (dp[si][ei] != 0)
+//             return dp[si][ei];
+
+//         int minRes = (int) 1e9;
+//         for (int cut = si + 1; cut < ei; cut++) {
+//             int leftRes = mcm_memo(arr, si, cut, dp);
+//             int rightRes = mcm_memo(arr, cut, ei, dp);
+
+//             minRes = Math.min(minRes, leftRes + arr[si] * arr[cut] * arr[ei] + rightRes);
+//         }
+
+//         return dp[si][ei] = minRes;
+//     }
+
+   
 }
     class Solution {
         class Pair {

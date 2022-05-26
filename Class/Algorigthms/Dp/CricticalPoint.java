@@ -1,4 +1,4 @@
-package Class.Algorigthms.Dp;
+
 
 public class CricticalPoint {
     class Solution {
