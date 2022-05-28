@@ -98,6 +98,89 @@ public class contrriuctTree {
         return Tree(preorder, inorder, 0, preorder.length - 1, 0, inorder.length - 1);
     }
     
+    //  Burint Treee 1;
+
+
+  public static void burinTime(TreeNode root,int time,TreeNode block){
+      if(root==null || root==block)return;
+             maxTime=Math.max(maxTime,time);
+           burinTime(root.left,time+1,block);
+           burinTime(root.right,time+1,block);
+           return;
+  }
+  public static int  burnkdown(TreeNode root,int fireNode){
+      if(root==null)return -1;
+      if(root.val==fireNode){
+          burinTime(root,0,null);
+          return 1;
+      }
+      int lt=burnkdown(root.left,fireNode);
+      if(lt!=-1){
+          burinTime(root,lt,root.left);
+      
+          return lt+1;
+      }
+      int rt=burnkdown(root.right,fireNode);
+       if(rt!=-1){
+           burinTime(root,rt,root.right);
+          return rt+1;
+           
+       }
+      return -1;
+  }
+  public static int maxTime=0;
+  public static int burningTree(TreeNode root, int fireNode) {
+      burnkdown(root,fireNode);
+      return maxTime;
+  }
+
+  // input_section=================================================
+  //k down function
+  public static void kdown(TreeNode root, int k, TreeNode block, ArrayList<Integer> ans) {
+    if (root == null || k < 0 || root == block)
+      return;
+
+    if (k == 0) {
+      ans.add(root.val);
+      return;
+    }
+
+    kdown(root.left, k - 1, block, ans);
+    kdown(root.right, k - 1, block, ans);
+  }
+
+  public static int distanceK(TreeNode root, int target, int k, ArrayList<Integer> ans) {
+    if (root == null)
+      return -1;
+
+    if (root.val == target) {
+      kdown(root, k, null, ans);
+      return 1;
+    }
+
+    int ld = distanceK(root.left, target, k, ans);
+    if (ld != -1) {
+      kdown(root, k - ld, root.left, ans);
+      return ld + 1;
+    }
+
+    int rd = distanceK(root.right, target, k, ans);
+    if (rd != -1) {
+      kdown(root, k - rd, root.right, ans);
+      return rd + 1;
+    }
+
+    return -1;
+  }
+
+  public static ArrayList<Integer> distanceK(TreeNode root, int target, int k) {
+    ArrayList<Integer> ans = new ArrayList<>();
+    distanceK(root, target, k, ans);
+
+    return ans;
+
+  }
+
 
     
 }
