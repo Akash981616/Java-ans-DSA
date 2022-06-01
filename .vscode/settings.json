@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "Class/Algorigthms/Graph",
         "Class/Algorigthms/Dp",
-        "Class/Algorigthms/Graph"
+        "Class/Design pattherns"
     ]
 }

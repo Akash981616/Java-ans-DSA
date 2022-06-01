@@ -159,6 +159,7 @@ public class contrriuctTree {
     }
 
     int ld = distanceK(root.left, target, k, ans);
+    
     if (ld != -1) {
       kdown(root, k - ld, root.left, ans);
       return ld + 1;
