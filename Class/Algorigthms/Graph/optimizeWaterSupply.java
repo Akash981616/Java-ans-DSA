@@ -28,41 +28,45 @@ class Main {
     System.out.println(minCostToSupplyWater(v, wells, pipes));
 
   }
+  
     static int par[];
    public static int find(int u){
        return par[u]==u?u:(par[u]=find(par[u]));
    }
-  public static int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
-      
-      par=new int[n+1];
-      
-      for(int i=0;i<=n;i++){
-          par[i]=i;
-      }
-      
-      List<int[]>graph=new ArrayList<>();
-     for(int p[]: pipes ){
-         graph.add(p);
+
+   public static int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
+
+     par = new int[n + 1];
+
+     for (int i = 0; i <= n; i++) {
+       par[i] = i;
      }
 
-      for(int i=0;i<wells.length;i++){
-         graph.add(new int[]{0,i+1,wells[i]});
+     List<int[]> graph = new ArrayList<>();
+     for (int p[] : pipes) {
+       graph.add(p);
      }
-      Collections.sort(graph,(a,b)->a[2]-b[2]); 
-     
-     int cost=0;
-      for(int pip[]:graph){
-          int u=pip[0];
-          int v=pip[1];
-          int w=pip[2];
-          int p1=find(u);int p2=find(v);
-          if(p1!=p2){
-              par[p1]=p2;
-              cost+=w;
-          }
-          
-      }
-      
-    return cost;
-  }
+
+     for (int i = 0; i < wells.length; i++) {
+       graph.add(new int[] { 0, i + 1, wells[i] });
+     }
+     Collections.sort(graph, (a, b) -> a[2] - b[2]);
+
+     int cost = 0;
+     for (int pip[] : graph) {
+       int u = pip[0];
+       int v = pip[1];
+       int w = pip[2];
+       int p1 = find(u);
+       int p2 = find(v);
+       if (p1 != p2) {
+         par[p1] = p2;
+         cost += w;
+       }
+
+     }
+
+     return cost;
+   }
+  
 }
