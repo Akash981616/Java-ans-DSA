@@ -2,6 +2,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class FrogWithJump {
+    /**
+     * @param stones
+     * @return
+     */
     public boolean canCross(int[] stones) {
         HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
         for (int i = 0; i < stones.length; i++) {
@@ -20,8 +24,11 @@ public class FrogWithJump {
                 }
             }
         }
+      
         return false;
     }
-
 }
+    
+
+
 

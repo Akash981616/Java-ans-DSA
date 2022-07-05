@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "Class/LLSD/Player",
         "Class/Design pattherns",
         "Class/Algorigthms/Graph",
         "Class/Algorigthms/Dp",
-        "Class/LLSD/Player"
+        "Class/Algorigthms"
     ]
 }
