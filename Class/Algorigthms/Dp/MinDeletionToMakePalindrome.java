@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MinDeletionToMakePalindrome {
      public int minInsertions(String s) {
             int n=s.length();
