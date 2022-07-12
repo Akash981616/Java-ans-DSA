@@ -1,11 +1,16 @@
 package HackerRank.java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.concurrent.LinkedBlockingDeque;
 
 class first {
     public static void main(String[] args) {
+        Arrays.sort();
+        LinkedList<Integer> ans = new LinkedList<>();
          List<Integer> result = new ArrayList<>();
           List<Integer> ranked = new ArrayList<>();
     result.add(100);
