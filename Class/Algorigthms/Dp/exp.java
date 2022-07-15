@@ -189,6 +189,55 @@ public class exp {
     int m = arr.length;
     int n = arr[0].length;
 
+    class Solution {
+        public int slidingPuzzle(int[][] board) {
+            int[][] dirs = new int[][] { { 1, 3 }, { 0, 2, 4 },
+                    { 1, 5 }, { 0, 4 }, { 1, 3, 5 }, { 2, 4 } };
+            String target = "123450";
+            String start = "";
+            HashSet<String> set = new HashSet<>();
+            int n = board.length;
+            int m = board[0].length;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    start += board[i][j];
+                }
+            }
+            LinkedList<String> q = new LinkedList<>();
+            set.add(start);
+            q.add(start);
+            int swap = 0;
+            while (!q.isEmpty()) {
+                int size = q.size();
+                while (size-- > 0) {
+                    String curr = q.remove();
+                    if (curr.equals(target))
+                        return swap;
+                    int zero = cur.indexOf('0');
+                    for (int dir : dirs[zero]) {
+                        String next = swap(curr, zero, dir);
+                        if (visited.contains(next))
+                            continue;
+
+                        set.add(next);
+                        queue.offer(next);
+                    }
+                }
+                swap++;
+            }
+            return -1;
+        }
+
+        public void swap(String str, int i, int j) {
+            StringBuilder sb = new StringBuilder(str);
+            sb.setCharAt(i, str.charAt(j));
+            sb.setCharAt(j, str.charAt(i));
+            return sb.toString();
+
+        }
+    }
+    
+
 }
 
 
