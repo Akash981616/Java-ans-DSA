@@ -1,11 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Set;
 
+import java.util.*;
 
 
 
@@ -154,6 +148,7 @@ public class exp {
         }
     }
 
+    //minSwap
     class Solution {
         public int minSwaps(int nums[]) {
             int n = nums.length;
@@ -189,6 +184,7 @@ public class exp {
     int m = arr.length;
     int n = arr[0].length;
 
+    //sliding puzzle
     class Solution {
         public int slidingPuzzle(int[][] board) {
             int[][] dirs = new int[][] { { 1, 3 }, { 0, 2, 4 },
@@ -236,9 +232,312 @@ public class exp {
 
         }
     }
-    
+
+    //out of boundary
+    class Solution {
+        int mod = (int) 1e9 + 7;
+        int dirs[][] = { { 0, 1 }, { 1, 0 }, { -1, 0 }, { 0, -1 } };
+
+        public int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
+            int dp[][][] = new int[m + 1][n + 1][maxMove + 1];
+            for (int dpp[][] : dp) {
+                for (int d[] : dpp)
+                    Arrays.fill(d, -1);
+            }
+            return paths(m, n, maxMove, startRow, startColumn, dp);
+        }
+
+        public int path(int m, int n, int k, int sr, int sc, int dp[][][]) {
+            if (sr == m || sc == n || sr < 0 || sc < 0)
+                return 1;
+            if (dp[sr][sc][k] != -1)
+                return dp[sr][sc][k];
+
+            if (k == 0)
+                return 0;
+            int count = 0;
+            for (int d[] : dirs) {
+                int x = sr + dir[0];
+                int y = sc + dir[1];
+                count = (count + path(m, n, k - 1, x, y, dp)) % mod;
+            }
+            return dp[sr][sc][k] = count;
+        }
+
+    }
+
+    //    827. Making A Large Island
+    class Solution {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int n;
+        int m;
+        int dirs[][] = { { 0, 1 }, { 1, 0 }, { -1, 0 }, { 0, -1 } };
+
+        public int largestIsland(int[][] grid) {
+            n = grid.length;
+            m = grid[0].length;
+            int island = 2, max = 0;
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    if (grid[i][j] == 1) {
+                        int size = getConnectedComponet(grid, i, j, island);
+                        max = Math.max(size, max);
+                        map.put(island++, size);
+                    }
+                }
+            }
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < m; j++) {
+                    if (grid[i][j] == 0) {
+                        HashSet<Integer> set = new HashSet<>();
+                        for (int d[] : dirs) {
+                            int x = i + d[0];
+                            int y = j + d[1];
+                            if (x >= 0 && y >= 0 && x < n && y < m && grid[x][y] != 0) {
+                                set.add(grid[x][y]);
+                            }
+                        }
+                        int sum = 1;
+                        for (int ele : set)
+                            sum += map.get(ele);
+                        max = Math.max(max, sum);
+                    }
+                }
+            }
+
+            return max;
+        }
+
+        public int getConnectedComponet(int[][] grid, int i, int j, int island) {
+            grid[i][j] = island;
+            int count = 0;
+            for (int dir[] : dirs) {
+                int x = i + dir[0];
+                int y = j + dir[1];
+                if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && grid[x][y] == 1)
+                    count += getConnectedComponet(grid, x, y, island);
+
+            }
+            return count + 1;
+
+        }
+    }
+
+    class Solution {
+        public int[] numberOfPairs(int[] nums) {
+            int res[] = new int[2];
+            int map[] = new int[101];
+            for (int ele : nums)
+                map[ele]++;
+            int i = 0;
+            for (i = 0; i < 101; i++) {
+                if (i == 0 && map[i] <= 1)
+                    continue;
+                if (map[i] % 2 == 0) {
+                    res[i++] = i;
+                }
+
+            }
+            return res;
+        }
+    }
+
+    class Solution {
+        public int numSubmatrixSumTarget(int[][] matrix, int target) {
+            int row = matrix.length;
+            int col = matrix[0].length;
+            int res = 0;
+            //int[][] sum = new int[row][col];
+
+            for (int i = 0; i < row; i++) {
+                for (int j = 1; j < col; j++) {
+                    //sum[i][j] =sum[i][j-1] + matrix[i][j-1];
+                    matrix[i][j] += matrix[i][j - 1];
+                }
+            }
+
+            for (int start = 0; start < col; start++) {
+                for (int end = start; end < col; end++) {
+                    int subMatrixSum = 0;
+
+                    Map<Integer, Integer> countElm = new HashMap<Integer, Integer>();
+                    countElm.put(0, 1);
+
+                    for (int k = 0; k < row; k++) {
+                        //subMatrixSum += sum[k][end] - sum[k][start];
+                        int prefixSum = start == 0 ? 0 : matrix[k][start - 1];
+                        subMatrixSum += matrix[k][end] - prefixSum;
+
+                        if (countElm.containsKey(subMatrixSum - target))
+                            res += countElm.get(subMatrixSum - target);
+
+                        int r = countElm.getOrDefault(subMatrixSum, 0);
+                        countElm.put(subMatrixSum, r + 1);
+                    }
+                }
+            }
+
+            return res;
+        }
+    }
+
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> res = new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> curr = new ArrayList<>(Arrays.asList(1));
+            for (int j = 1; j < i; j++) {
+                curr.add(res.get(i - 1).get(j - 1) + res.get(i - 1).get(j));
+            }
+            if (i > 0)
+                curr.add(1);
+            res.add(curr);
+        }
+        return res;
+    }
+
+    class Solution {
+        int parent[];
+
+        public int makeConnected(int n, int[][] connections) {
+            parent = new int[n];
+            for (int i = 0; i < n; i++) {
+                parent[i] = i;
+            }
+            int component = n;
+            for (int con[] : connections) {
+                int p1 = find(con[0]);
+                int p2 = find(con[1]);
+                if (p1 != p2) {
+                    parent[p1] = p2;
+                    component--;
+                }
+
+            }
+            return component;
+        }
+
+        public int find(int u) {
+            return parent[u] == u ? u : (parent[u] = find(parent[u]));
+        }
+    }
+
+    class Solution {
+        public int carFleet(int target, int[] position, int[] speed) {
+            int n = position.length;
+            double[][] carInfo = new double[][];
+            for (int i = 0; i < n; i++) {
+                carInfo[i][0] = position[i] * 1d;
+                carInfo[i][1] = (target - position[i] * 1d) / speed[i];
+            }
+            Arrays.sort(carInfo, (a, b) -> a[0] - b[0]);
+            int fleet = 0;
+            double tt = carInfo[n - 1][1];
+            for (int i = n - 2; i >= 0; i--) {
+                if (carInfo[i][1] > tt) {
+                    tt = carInfo[i][1];
+                    fleet++;
+                }
+            }
+            return fleet + 1;
+        }
+    }
+
+    class Solution {
+        //s = "abcde", words = ["a","bb","acd","ace"]
+        //output =3
+
+        public int numMatchingSubseq(String s, String[] words) {
+            Map<Character, Queue<String>> map = new HashMap<>();
+            int ans = 0;
+
+            for (int i = 0; i < s.length(); ++i)
+                map.putIfAbsent(s.charAt(i), new LinkedList<>());
+
+            for (String word : words) {
+                char startCh = word.charAt(0);
+                if (map.containsKey(startCh))
+                    map.get(startCh).offer(word);
+            }
+            for (int i = 0; i < s.length(); ++i) {
+                char startCh = s.charAt(i);
+                Queue<String> que = map.get(startCh);
+                int size = que.size();
+                for (int j = 0; j < size; ++j) {
+                    String str = que.poll();
+                    if (str.substring(1).length() == 0)
+                        ans++;
+                    else if (map.containsKey(str.charAt(1)))
+                        map.get(str.charAt(1)).add(str.substring(1));
+                }
+            }
+            return ans;
+        }
+
+    }
+
+    class Solution {
+        public int minDays(int[] bloomDay, int m, int k) {
+            int n = bloomDay.length;
+            if (bloomDay.length < m * k) {
+                return -1;
+            }
+            int low = 1;
+            int high = (int) 1e9;
+            for (int ele : bloomDay)
+                high = Math.max(high, ele);
+
+            int ans = -1;
+            while (low <= high) {
+                int mid = low + (high - low) / 2;
+                if (isPossible(bloomDay, m, k, mid)) {
+                    ans = mid;
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            return ans;
+        }
+
+        public boolean isPossible(int[] arr, int m, int k, int mid) {
+            int flower = 0;
+            int days = 0;
+            for (int ele : arr) {
+                if (ele <= mid) {
+                    flower++;
+                    if (flower == k) {
+                        days++;
+                        flower = 0;
+                    }
+                } else {
+                    flower = 0;
+                }
+            }
+            return days >= m;
+        }
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
