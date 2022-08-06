@@ -1,4 +1,7 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 import javax.swing.AbstractAction;
 
@@ -17,7 +20,7 @@ public class contest {
         }
 
         static void show() {
-            System.out.println("hey how are " );
+            System.out.println("hey how are ");
         }
 
         abstract void body();
@@ -37,14 +40,14 @@ public class contest {
     }
 
     public static void main(String[] args) {
-        for(String curr:args)System.out.println(curr);
-       
-        Employee q = new softEmp("Akash", 1);
+        int grid[][] = { { 3, 2, 1 }, { 1, 7, 6 }, { 2, 7, 7 } };
+        String s = new String("manshu");
+        s.concat("fhfjfjhfj");
+        System.out.println(s);//manshu
 
-      
-        q.body();
     }
 
+   
 }
 
 
