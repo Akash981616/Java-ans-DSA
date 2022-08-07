@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.ListIterator;
+import java.util.List;
+
 
 public class Itrable {
     static class MyLinkedList {
@@ -65,5 +68,34 @@ public class Itrable {
         System.out.print(a | b);
             
     }
+
+    class Solution {
+        public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
+            List<List<Integer>> res = new ArrayList<>();
+            HashMap<Integer> map = new HashMap<>();
+
+            for (int[] e : items1)
+                map.put(e[0], e[1]);
+
+            for (int[] e : items2) {
+                if (map.containsKey(e[0])) {
+                    map.put(e[0], map.getOr(e[0]) + e[1]);
+                }
+            }
+            for (int key : map.keySet()) {
+                List<Integer> curr = new ArrayList<>();
+                curr.add(key);
+                curr.add(map.get(key));
+                res.add(curr);
+            }
+            Comparator<List<String>> comparator = new Comparator<List<String>>() {
+    public int compare(List<String> pList1, List<String> pList2) {
+        return pList1.get(0).compareTo(pList2.get(0));
+    }
+};
+            return Collections.sort(res,comparator); 
+        }
+    }
+
 }
 

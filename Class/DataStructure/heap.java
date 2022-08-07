@@ -1,3 +1,9 @@
+package DataStructure;
+import java.util.*;
+/**
+ * heap
+ */
+public class heap {
 private ArrayList<Integer> arr;
     private boolean isMax = true;
 
@@ -93,4 +99,5 @@ private ArrayList<Integer> arr;
             }
         }
         
-    }
+    } 
+}
