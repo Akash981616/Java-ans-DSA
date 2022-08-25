@@ -10,13 +10,14 @@ public class RealHandler3 extends Handler {
     @Override
     void handleRequest(Request obj) {
         if (obj.state < 0) {
- System.out.println("All state  smaller than zero are Handled here");
-} else if (next != null) {
-              System.out.println("Not a negative State delegating Forward");
+            System.out.println("All state  smaller than zero are Handled here");
+        } else if (next != null) {
+            System.out.println("Not a negative State delegating Forward");
             next.handleRequest(obj);
         }
 
     }
 
 }
+
 
