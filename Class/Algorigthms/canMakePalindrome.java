@@ -1,6 +1,8 @@
 // "static void main" must be defined in a public class.
 public class canMakePalindrome {
-  public static void main(String[] args) {
+    public static void main(String[] args) {
+        int n = 15;
+        System.out.println((n&n-1));
         String str = "kayak";
         System.out.println(canMakePalindrome(str));
     }

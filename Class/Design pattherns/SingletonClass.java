@@ -1,38 +1,38 @@
 public class SingletonClass {
-   // //only one object we can create
+   //only one object we can create
 
-   // public class SingleObject {
+   public class SingleObject {
 
-   //    //create an object of SingleObject
-   //    private static SingleObject instance;
+      //create an object of SingleObject
+      private static SingleObject instance;
 
-   //    //make the constructor private so that this class cannot be
-   //    //instantiated
-   //    private SingleObject() {
-   //    }
+      //make the constructor private so that this class cannot be
+      //instantiated
+      private SingleObject() {
+      }
 
-   //    //Get the only object available
-   //    public static SingleObject getInstance() {
-   //       return instance;
-   //    }
+      //Get the only object available
+      public static SingleObject getInstance() {
+         return instance;
+      }
 
-   //    public void showMessage() {
-   //       System.out.println("Hello World!");
-   //    }
-   // }
+      public void showMessage() {
+         System.out.println("Hello World!");
+      }
+   }
 
-   //   public static void main(String[] args) throws Exception {
+     public static void main(String[] args) throws Exception {
 
-   //      //illegal construct
-   //      //Compile Time Error: The constructor SingleObject() is not visible
-   //      //SingleObject object = new SingleObject();
+        //illegal construct
+        //Compile Time Error: The constructor SingleObject() is not visible
+        //SingleObject object = new SingleObject();
 
-   //      //Get the only object available
-   //      SingleObject object = SingleObject.getInstance();
+        //Get the only object available
+        SingleObject object = SingleObject.getInstance();
 
-   //      //show the message
-   //      object.showMessage();
-   //  }
+        //show the message
+        object.showMessage();
+    }
 
    private static SingletonClass ints;
 

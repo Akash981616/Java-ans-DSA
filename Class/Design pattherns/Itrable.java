@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -70,6 +71,11 @@ public class Itrable {
     }
 
     class Solution {
+        /**
+         * @param items1
+         * @param items2
+         * @return
+         */
         public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
             List<List<Integer>> res = new ArrayList<>();
             HashMap<Integer> map = new HashMap<>();
