@@ -1,4 +1,5 @@
 public class minSquareNo {
+    279. Perfect Squares
 // Approach #4: Legendre's 3-Square Theorem
 
 // 4-Square theorem: Every natural no is sum of 4 squares.

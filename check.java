@@ -1,7 +1,12 @@
 public class check {
     public static void main(String[] args) {
         int arr[]={4,5,6,7,0,1,2};
-    int target=4;
+        int target = 4;
+        String ans = "Akashd";
+        String s3 = "Kumar";
+        StringBuilder s2 = new StringBuilder();
+        s2.append(ans+s3);
+
    int left =BinarySearch(arr,target,4);
    System.out.print(left);
     }

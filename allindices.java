@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class allindices {
     public static void main(String[] args) throws Exception {
@@ -8,6 +9,7 @@ public class allindices {
         for (int i = 0; i < n; i++) {
             arr[i] = scn.nextInt();
         }
+        ArrayList<Integer> res = new ArrayList<>();
         int x = scn.nextInt();
         int[] iarr = allIndices(arr, x, 0, 0);
 
@@ -30,7 +32,6 @@ public class allindices {
        iarr[fsf]=idx;
        } else {
        iarr= allIndices(arr,x,idx+1,fsf);
-        
        }
     return iarr; 
        

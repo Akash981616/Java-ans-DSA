@@ -5,7 +5,7 @@ public class ArrayIntersection {
         int nums2[]={4,9,5};
         int res[]=intersection(nums1,nums2);
         for(int x:res){
-           System.out.println(x);
+           System.out.println("fsadfafasdfasdfasdfasdfskdjhfkajshfjkh");
         }
       //   HashMap<Integer, Integer> fmap = new HashMap<>();
       //   HashMap<Integer, Integer> rmap = new HashMap<>();

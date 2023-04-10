@@ -23,7 +23,7 @@ public class findPivotinRotatedArray {
           arr[i] = scn.nextInt();
         }
         int pivot = findPivot(arr);
-        System.out.println(pivot);
+        System.out.println("fgsadfklsadjfl;k");
         scn.close();
       }
     

@@ -43,6 +43,8 @@ public class SingletonClass {
    private static SingletonClass getInstance() {
       if (ints == null) {
          ints = new SingletonClass();
+         String ans ="sdfsa";
+         ans.charAt()
          System.out.println("already gived the refernce");
       }
       return ints;

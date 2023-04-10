@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "TicToe",
+            "request": "launch",
+            "mainClass": "TicToe",
+            "projectName": "Java_25900324"
+        },
+        {
+            "type": "java",
+            "name": "FandLindexInArray",
+            "request": "launch",
+            "mainClass": "FandLindexInArray",
+            "projectName": "Java_25900324"
+        },
+        {
+            "type": "java",
+            "name": "CyclicSort",
+            "request": "launch",
+            "mainClass": "CyclicSort",
+            "projectName": "Java_25900324"
+        },
+        {
+            "type": "java",
+            "name": "findPivotinRotatedArray",
+            "request": "launch",
+            "mainClass": "findPivotinRotatedArray",
+            "projectName": "Java_25900324"
+        }
+    ]
+}
